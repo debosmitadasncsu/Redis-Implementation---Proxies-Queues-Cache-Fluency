@@ -2,6 +2,31 @@
 #### Name:  Debosmita Das
 #### Unity Id: ddas5
 
+## Installation Procedure
+```
+git clone https://github.ncsu.edu/ddas5/HW3.git
+cd HW3
+npm install
+npm install express --save
+```
+## Run main.js using following command:
+```
+node main.js
+```
+## Check various commands on port 3000 like the following ones:
+```
+- localhost:3000/get
+- localhost:3000/set
+- localhost:3000/recent
+- localhost:3000/upload
+- localhost:3000/meow
+- localhost:3000/catfact/:num
+- localhost:3000/toggleCacheFeature
+```
+##  Screencast
+```
+[Video Link]()
+```
 ## Conceptual Questions
 
 ### 1. Describe some benefits and issues related to using Feature Flags.
