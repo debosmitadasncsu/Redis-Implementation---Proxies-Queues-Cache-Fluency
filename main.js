@@ -13,7 +13,7 @@ client.lpush("toggle", "1");
 app.use(function(req, res, next) {
     console.log(req.method, req.url);
     client.lpush("recent_sites", req.url, function(err, value) {
-      if(err) throw err;
+        if (err) throw err;
     })
     client.ltrim("recent_sites", 0, 4);
     next();
@@ -39,7 +39,7 @@ app.post('/upload', [multer({
 app.get('/meow', function(err, res) {
     client.lpop("cats", function(err, imagedata) {
         res.writeHead(200, {
-          'content-type': 'text/html'
+            'content-type': 'text/html'
         });
         res.write("<h1>\n<img src='data:my_pic.jpg;base64," + imagedata + "'/>");
         res.end();
@@ -95,24 +95,21 @@ app.get('/catfact/:num', function(req, res) {
                     });
                 } else {
                     get_line("catfacts.txt", req.params.num.split(":")[1], function(err, line) {
-                        if(line === "File end reached without finding line; Give proper line number")
-                        {
+                        if (line === "File end reached without finding line; Give proper line number") {
 
-                          res.write(line);
+                            res.write(line);
+                        } else {
+                            client.setex("catfact" + req.params.num, 10, line);
+                            param = "Cat Fact No".concat(req.params.num);
+                            param = param.concat(" ");
+                            res.write("<br>Retrieving From File Directly;</br>");
+                            res.write(param.concat(line));
+                            client.ttl("catfact" + req.params.num, function(err, value) {
+                                param = "You can retrieve the key for ".concat(value.toString())
+                                res.write(param.concat(" ms more."));
+                            });
                         }
-                        else
-                        {
-                          client.setex("catfact" + req.params.num, 10, line);
-                          param = "Cat Fact No".concat(req.params.num);
-                          param = param.concat(" ");
-                          res.write("<br>Retrieving From File Directly;</br>");
-                          res.write(param.concat(line));
-                          client.ttl("catfact" + req.params.num, function(err, value) {
-                              param = "You can retrieve the key for ".concat(value.toString())
-                              res.write(param.concat(" ms more."));
-                          });
-                        }
-                        
+
                     });
                 }
             });
@@ -120,7 +117,7 @@ app.get('/catfact/:num', function(req, res) {
         } else {
             res.write("Caching off - <br>Retrieving From File Directly;</br>");
             get_line("catfacts.txt", req.params.num.split(":")[1], function(err, line) {
-                if(err) throw err;
+                if (err) throw err;
                 param = "Cat Fact No".concat(req.params.num);
                 param = param.concat(" ");
 
@@ -161,12 +158,10 @@ function get_line(filename, line_no, callback) {
         //throw new Error('File end reached without finding line');
         lines = "File end reached without finding line; Give proper line number";
         callback(null, lines);
+    } else {
+        callback(null, lines[+line_no]);
     }
-    else
-    {
-      callback(null, lines[+line_no]);
-    }
-    
+
 }
 
 app.get('/test', function(req, res) {
