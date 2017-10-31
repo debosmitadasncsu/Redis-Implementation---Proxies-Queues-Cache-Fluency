@@ -91,7 +91,7 @@ app.get('/catfact/:num', function(req, res) {
                     res.write(param.concat(value));
                     client.ttl("catfact" + req.params.num, function(err, value) {
                         param = "You can retrieve the key for ".concat(value.toString())
-                        res.write(param.concat(" ms more."));
+                        res.write(param.concat("s more."));
                     });
                 } else {
                     get_line("catfacts.txt", req.params.num.split(":")[1], function(err, line) {
@@ -106,7 +106,7 @@ app.get('/catfact/:num', function(req, res) {
                             res.write(param.concat(line));
                             client.ttl("catfact" + req.params.num, function(err, value) {
                                 param = "You can retrieve the key for ".concat(value.toString())
-                                res.write(param.concat(" ms more."));
+                                res.write(param.concat("s more."));
                             });
                         }
 
