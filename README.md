@@ -29,7 +29,7 @@ node main.js
 - localhost:3000/toggleCacheFeature
 ```
 ##  Screencast
-[![Video Link](https://img.youtube.com/vi/https://youtu.be/5n6ce7lr8Xk/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/5n6ce7lr8Xk)
+![Video Link](https://youtu.be/5n6ce7lr8Xk)
 
 ## Conceptual Questions
 
