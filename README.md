@@ -29,9 +29,9 @@ node main.js
 - localhost:3000/toggleCacheFeature
 ```
 ##  Screencast
-```
-[Video Link](https://youtu.be/5n6ce7lr8Xk)
-```
+
+[![Video Link](https://img.youtube.com/vi/https://www.youtube.com/embed/5n6ce7lr8Xk/0.jpg)](https://www.youtube.com/embed/5n6ce7lr8Xk)
+
 ## Conceptual Questions
 
 ### 1. Describe some benefits and issues related to using Feature Flags.
