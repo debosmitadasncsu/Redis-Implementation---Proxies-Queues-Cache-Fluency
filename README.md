@@ -8,6 +8,11 @@ git clone https://github.ncsu.edu/ddas5/HW3.git
 cd HW3
 npm install
 npm install express --save
+Install redis
+```
+### Start Redis server on terminal
+```
+redis-server
 ```
 ## Run main.js using following command:
 ```
@@ -15,8 +20,8 @@ node main.js
 ```
 ## Check various commands on port 3000 like the following ones:
 ```
-- localhost:3000/get
 - localhost:3000/set
+- localhost:3000/get
 - localhost:3000/recent
 - localhost:3000/upload
 - localhost:3000/meow
@@ -25,7 +30,7 @@ node main.js
 ```
 ##  Screencast
 ```
-[Video Link]()
+[Video Link](https://youtu.be/5n6ce7lr8Xk)
 ```
 ## Conceptual Questions
 
